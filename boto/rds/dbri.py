@@ -1,4 +1,4 @@
-class ReservedDBInstances(dict):
+class ReservedDBInstance(dict):
 
     def __setattr__(self, attr, value):
         self[attr] = value

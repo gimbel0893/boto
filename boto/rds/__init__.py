@@ -27,7 +27,7 @@ from boto.rds.dbsecuritygroup import DBSecurityGroup
 from boto.rds.optiongroup  import OptionGroup, OptionGroupOption
 from boto.rds.parametergroup import ParameterGroup
 from boto.rds.dbsnapshot import DBSnapshot
-from boto.rds.dbri import ReservedDBInstances
+from boto.rds.dbri import ReservedDBInstance
 from boto.rds.event import Event
 from boto.rds.regioninfo import RDSRegionInfo
 from boto.rds.dbsubnetgroup import DBSubnetGroup
@@ -1093,7 +1093,7 @@ class RDSConnection(AWSQueryConnection):
     def get_all_dbris(self):
         params = {}
         return self.get_list('DescribeReservedDBInstances', params,
-                             [('ReservedDBInstance', ReservedDBInstances)])
+                             [('ReservedDBInstance', ReservedDBInstance)])
 
     def create_dbsnapshot(self, snapshot_id, dbinstance_id):
         """

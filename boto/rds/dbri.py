@@ -49,7 +49,7 @@ class ReservedDBInstance(object):
                 r = RecurringCharge(charge['RecurringChargeAmount'],
                                     charge['RecurringChargeFrequency'])
                 rc.append(r)
-            setattr(self, 'recurring_charges', rc)
+            self.recurring_charges = rc
         elif name in self.ATTR_MAP:
             name, type = self.ATTR_MAP[name]
             value = type(value)

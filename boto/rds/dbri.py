@@ -44,12 +44,11 @@ class ReservedDBInstance(object):
 
     def endElement(self, name, value, connection):
         if name == 'RecurringCharges':
-            rc = []
+            self.recurring_charges = []
             for charge in value:
                 r = RecurringCharge(charge['RecurringChargeAmount'],
                                     charge['RecurringChargeFrequency'])
-                rc.append(r)
-            self.recurring_charges = rc
+                self.recurring_charges.append(r)
         elif name in self.ATTR_MAP:
             name, type = self.ATTR_MAP[name]
             value = type(value)

@@ -50,8 +50,8 @@ class ReservedDBInstance(object):
                                     charge['RecurringChargeFrequency'])
                 self.recurring_charges.append(r)
         elif name in self.ATTR_MAP:
-            name, type = self.ATTR_MAP[name]
-            value = type(value)
+            name, _type = self.ATTR_MAP[name]
+            value = _type(value)
             setattr(self, name, value)
         else:
             self._extra[name] = value
